@@ -39,9 +39,6 @@ const Header = () => {
               <a href="#" className="text-2xl font-normal font-epilogue text-gray-900 list-none hover:text-gray-500" target="">Get Help</a>
             </li>
             <li>
-              <a href="#" className="text-2xl font-normal font-epilogue text-gray-900 list-none hover:text-gray-500" target="_blank">Donate us</a>
-            </li>
-            <li>
               <a href="#" className="text-2xl font-normal font-epilogue text-gray-900 list-none hover:text-gray-500" target="">Register</a>
             </li>
           </div>

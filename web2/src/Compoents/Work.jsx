@@ -3,6 +3,8 @@ import { FaDonate } from "react-icons/fa";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { BsFillChatTextFill } from "react-icons/bs";
 import { IoNewspaperSharp } from "react-icons/io5";
+import { LiaDonateSolid } from "react-icons/lia";
+
 const Work = () => {
   return (
     <div>
@@ -81,6 +83,11 @@ const Work = () => {
             </div>
           </div>
         </div>
+        <button class="flex mx-auto mt-16 text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            <LiaDonateSolid className='text-2xl mr-2'/> {/* Adding mr-2 for margin-right */}
+            Donate
+        </button>
+
       </section>
     </div>
   )

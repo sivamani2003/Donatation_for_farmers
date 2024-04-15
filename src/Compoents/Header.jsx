@@ -94,7 +94,7 @@ const Header = () => {
           >
             <li>
               <a
-                href="#"
+                href="/"
                 className="font-normal text-2xl font-epilogue text-gray-900 list-none hover:text-gray-500"
                 target=""
               >
@@ -103,7 +103,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="donate"
                 className="text-2xl font-normal font-epilogue text-gray-900 list-none hover:text-gray-500"
                 target=""
               >
@@ -112,7 +112,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="get_donate"
                 className="text-2xl font-normal font-epilogue text-gray-900 list-none hover:text-gray-500"
                 target=""
               >
@@ -122,11 +122,8 @@ const Header = () => {
           </div>
           <div className="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
             <div className="inline-flex rounded-full shadow">
-              <div
-                href="#"
-                className="inline-flex items-center px-4 py-2 text-base text-white bg-red-500 border border-transparent rounded-full cursor-pointer font-base hover:bg-pink-500 transform transition-transform hover:scale-105"
-              >
-                {/* <MetaMaskButton theme={"dark"} color="indigo"></MetaMaskButton> */}
+              <div>
+                <MetaMaskButton theme={"dark"} color="indigo"></MetaMaskButton>
               </div>
             </div>
           </div>

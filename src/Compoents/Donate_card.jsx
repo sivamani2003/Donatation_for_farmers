@@ -1,5 +1,5 @@
 // Import React
-import React from "react";
+import React, { useState } from "react";
 
 // Import necessary assets and dependencies
 import img10 from "../assets/img10.jpeg";
@@ -19,16 +19,16 @@ const getEthereumContract = () => {
   return transactionContract;
 };
 
-// Define the function to make a donation with a specific value
+// Function to make a donation with a specific value
 const makeDonationWithValue = async (amountInEther) => {
-  console.log("first");
   // Convert amount from Ether to Wei
   const amountInWei = ethers.utils.parseEther(amountInEther.toString());
 
   try {
     const transactionContract = getEthereumContract();
+    console.log(transactionContract);
     // Make the donation with the specified value
-    const tx = await transactionContract.makeDonationWithValue(amountInWei, {
+    const tx = await transactionContract.makeDonation({
       value: amountInWei,
     });
 
@@ -41,8 +41,11 @@ const makeDonationWithValue = async (amountInEther) => {
   }
 };
 
+
 // Define the Card component
 const Card = ({ imgSrc, title, description, tags }) => {
+  const [ethAmount, setEthAmount] = useState(0);
+
   // Handler for the donate button click event
   const handleDonateClick = () => {
     makeDonationWithValue(0.0001); // Specify the donation amount here
@@ -65,9 +68,18 @@ const Card = ({ imgSrc, title, description, tags }) => {
           </span>
         ))}
       </div>
+      <input
+        class="flex mx-auto mt-6 mb-10 bg-transparent text-red-500 font-semibold py-2 px-4 border border-red-500 hover:border-transparent rounded mt"
+        type="number"
+        placeholder="Enter Amount in ETH"
+        onChange={(event)=>{
+            const newValue = event.target.value;
+            setEthAmount(newValue);
+        }}
+      />
       {/* Donate button */}
       <button
-        onClick={handleDonateClick} // Call handleDonateClick when the button is clicked
+        onClick={() => makeDonationWithValue(ethAmount)} // Call handleDonateClick when the button is clicked
         className="flex mx-auto mt-6 mb-10 bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded mt"
       >
         Donate
@@ -78,6 +90,7 @@ const Card = ({ imgSrc, title, description, tags }) => {
 
 // Define the DonateCard component
 const DonateCard = () => {
+
   return (
     <div className="flex flex-wrap justify-start">
       {/* Render multiple Card components */}
